@@ -19,7 +19,7 @@ let offset = 32;
 
 let me = window.location.pathname? window.location.pathname.slice(1) : null;
 
-let fetchUrl = "http://api.giphy.com/v1/gifs/trending?api_key="; //want this to be a variable so I can change it to search once enter is pushed
+let fetchUrl = "https://api.giphy.com/v1/gifs/trending?api_key="; //want this to be a variable so I can change it to search once enter is pushed
 
 //should I create objects then store a key in the history's state. Giphy doesn't save anything. It looks like it resets.
 
@@ -45,7 +45,7 @@ function getGifs(){
 //load the trending gifs. Don't know a better way to do this. Maybe make a set page function and use that here.
 if(!me) getGifs().then(imageInfoArray => {history.replaceState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title: document.title}, "","")});
 else {
-	fetchUrl = "http://api.giphy.com/v1/gifs/search?q="+me+"&api_key=";
+	fetchUrl = "https://api.giphy.com/v1/gifs/search?q="+me+"&api_key=";
 	searchBar.value = me;
 	getGifs().then(imageInfoArray => {history.replaceState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title: document.title}, "",me)});
 }
@@ -109,7 +109,7 @@ document.addEventListener("scroll", _.debounce(fetchMore, 400));
 //when submited, change fetchURL and offset, stop the requests to render(?) images (thye've already been fetched), clear the page, then get more gifs
 //  wait for the data to be returned then update the state
 form.addEventListener("submit", async function(event){
-	fetchUrl = "http://api.giphy.com/v1/gifs/search?q="+encodeURIComponent(searchBar.value.toLowerCase())+"&api_key=";
+	fetchUrl = "https://api.giphy.com/v1/gifs/search?q="+encodeURIComponent(searchBar.value.toLowerCase())+"&api_key=";
 	event.preventDefault();
 	offset = 32;
 	window.stop();
