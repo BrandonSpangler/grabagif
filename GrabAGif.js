@@ -17,7 +17,7 @@ let form = document.querySelector("form");
 
 let offset = 32;
 
-let me = window.location.pathname? window.location.pathname.slice(1) : null;
+let me = window.location.hash? window.location.hash.slice(1) : null;
 
 let fetchUrl = "https://api.giphy.com/v1/gifs/trending?api_key="; //want this to be a variable so I can change it to search once enter is pushed
 
