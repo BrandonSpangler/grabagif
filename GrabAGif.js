@@ -47,7 +47,7 @@ if(!me) getGifs().then(imageInfoArray => {history.replaceState({fetchUrl: fetchU
 else {
 	fetchUrl = "https://api.giphy.com/v1/gifs/search?q="+me+"&api_key=";
 	searchBar.value = me;
-	getGifs().then(imageInfoArray => {history.replaceState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title: document.title}, "",me)});
+	getGifs().then(imageInfoArray => {history.replaceState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title: document.title}, "",location.pathname+location.hash)});
 }
 //return a random color from the list for the background of pictures
 function color(){
@@ -73,7 +73,7 @@ function createImg(url, height, width, altText){
 //learn how to make fetch calls more robust
 function updateState(event, imageInfoArray){
 	if(event.type == "submit"){
-		history.pushState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title:`Grab Gifs of ${searchBar.value}!`}, "",searchBar.value);
+		history.pushState({fetchUrl: fetchUrl, offset:offset, imageInfoArray:imageInfoArray, title:`Grab Gifs of ${searchBar.value}!`}, "",location.pathname + "#"+searchBar.value);
 		document.title = history.state.title;
 	}else if(event.type == "scroll"){
 		history.state.offset = offset;
