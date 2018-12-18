@@ -1,0 +1,77 @@
+*{
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+	background-color: black;
+}
+
+button{
+	border: hotpink 1px solid;
+	color: white;
+	background-color: hotpink;
+	padding: .7rem 1.7rem;
+	font-size: 1.3rem;
+	height: 100%;
+	margin-left:-4px;
+	cursor: pointer;
+}
+
+input{
+	height: 3rem;
+	width: 500px;
+	padding-left: 10px; 
+	letter-spacing: 1px;
+	font-size: 1.3rem;
+}
+
+.title{
+	color: white;
+	border: white 1px solid;
+	font-size: 4rem;
+}
+
+.searchPart{
+	margin: 3px;
+	/*border: white 1px solid;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	
+}
+
+.gridContainer{
+	margin-top: 150px; 
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+}
+
+.col{
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+}
+
+.colOne{
+	margin-right: 10px;
+}
+.colThree, .colTwo{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.colFour{
+	margin-left: 10px;
+}
+
+::placeholder{
+	color: rgba(0,0,0,.2);
+}
